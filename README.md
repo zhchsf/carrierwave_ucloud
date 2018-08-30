@@ -1,8 +1,8 @@
 # CarrierwaveUcloud
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/carrierwave_ucloud`. To experiment with that code, run `bin/console` for an interactive prompt.
+Ucloud Ufile CarrierWave Gem。
 
-TODO: Delete this and the text above, and describe your gem
+参考了aws/aliyun/ucloud多个已有CarrierWave插件的代码，感谢他们的付出。
 
 ## Installation
 
@@ -21,6 +21,8 @@ Or install it yourself as:
     $ gem install carrierwave_ucloud
 
 ## Usage
+
+配置文件：config/initializers/carrierwave.rb，内容如下：
 
 ```ruby
 # public / private 最少配置一套，ucloud_public_read自己要对应好，暂时没有做任何校验逻辑
