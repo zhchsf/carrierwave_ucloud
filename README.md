@@ -22,7 +22,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# public / private 最少配置一套，ucloud_public_read自己要对应好，暂时没有做任何校验逻辑
+CarrierWave.configure do |config|
+  config.storage = :ucloud
+  config.ucloud_public_key = "public_key"
+  config.ucloud_private_key = "private_key"
+  config.ucloud_public_read = true # 默认使用public bucket，可在单个uploader覆写
+  # public bucket配置
+  config.ucloud_public_bucket = "public_bucket_name"
+  config.ucloud_public_bucket_host = "http://public_bucket_name.cn-bj.ufileos.com"
+  config.ucloud_public_cdn_host = "http://public_bucket_name.cn-bj.ufileos.com"
+  config.ucloud_private_bucket = "private_bucket_name"
+  # private bucket配置
+  config.ucloud_private_bucket_host = "http://private_bucket_name.cn-bj.ufileos.com"
+  config.ucloud_private_cdn_host = "http://private_bucket_name.cn-bj.ufileos.com"
+  config.ucloud_private_expire_seconds = 300
+end
+```
 
 ## Development
 
