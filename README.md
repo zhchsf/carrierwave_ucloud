@@ -43,6 +43,16 @@ CarrierWave.configure do |config|
 end
 ```
 
+全局配置ucloud_public_read，默认使用对应bucket配置，个别uploader如要用另外一种bucket配置，添加如下方法:
+```ruby
+class XxxUploader < CarrierWave::Uploader::Base
+  def ucloud_public_read
+    # true or false，XxxUploader以此配置选择bucket配置及逻辑
+  end
+end
+```
+
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
