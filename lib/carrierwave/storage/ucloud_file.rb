@@ -20,8 +20,8 @@ module CarrierWave
         bucket.delete(path)
       end
 
-      def url(opts = {})
-        bucket.url(path, opts)
+      def url
+        bucket.url(path)
       end
 
       def store(file, headers = {})

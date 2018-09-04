@@ -63,29 +63,23 @@ module CarrierWave
         end
       end
 
-      def url(path, opts = {})
+      def url(path)
         if @ucloud_public_read
-          public_get_url(path, opts)
+          public_get_url(path)
         else
-          private_get_url(path, opts)
+          private_get_url(path)
         end
       end
 
       # 公开的访问地址
-      def public_get_url(path, opts = {})
+      def public_get_url(path)
         path.sub!(PATH_PREFIX, '')
-        url = ''
-        if opts[:thumb]
-          # TODO
-        else
-          url = [@ucloud_cdn_host, path].join('/')
-        end
-        url
+        [@ucloud_cdn_host, path].join('/')
       end
 
       # 私有空间访问地址
-      def private_get_url(path, opts = {})
-        public_get_url(path, opts) + privite_get_url_auth(path)
+      def private_get_url(path)
+        public_get_url(path) + privite_get_url_auth(path)
       end
 
       private
