@@ -1,5 +1,6 @@
 require 'base64'
 require 'openssl'
+require 'faraday'
 
 module CarrierWave
   module Ucloud
