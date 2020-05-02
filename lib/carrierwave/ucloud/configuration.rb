@@ -21,6 +21,7 @@ module CarrierWave
 
         configure do |config|
           config.storage_engines[:ucloud] = 'CarrierWave::Storage::Ucloud'
+          config.cache_storage = :file
         end
       end
     end
