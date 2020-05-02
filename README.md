@@ -9,7 +9,7 @@ Ucloud Ufile CarrierWave Gem。
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'carrierwave_ucloud'
+gem 'carrierwave_ucloud', '0.2.1'
 ```
 
 And then execute:
