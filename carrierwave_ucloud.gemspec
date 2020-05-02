@@ -33,9 +33,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'carrierwave', '~> 2.0'
-  spec.add_dependency 'faraday', '~> 0.11'
+  spec.add_dependency 'faraday', '>= 0.16'
 
   spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rake", ">= 12.3"
   spec.add_development_dependency "rspec", "~> 3.0"
 end
