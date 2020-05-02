@@ -25,7 +25,7 @@ Or install it yourself as:
 配置文件：config/initializers/carrierwave.rb，内容如下：
 
 ```ruby
-# public / private 最少配置一套，ucloud_public_read自己要对应好，暂时没有做任何校验逻辑
+# public / private 最少配置一套，配置2套可共存，uploader文件ucloud_public_read自己要对应好，暂时没有做任何校验逻辑
 CarrierWave.configure do |config|
   config.storage = :ucloud
   config.ucloud_public_key = "public_key"
@@ -33,10 +33,12 @@ CarrierWave.configure do |config|
   config.ucloud_public_read = true # 默认使用public bucket，可在单个uploader覆写
   # public bucket配置
   config.ucloud_public_bucket = "public_bucket_name"
+  # bucket 上传host，可设置ucloud提供的纯内网host（每个区不一样，例如："http://public_bucket_name.ufile.cn-north-02.ucloud.cn"），或者配置和cdn访问host一样的
   config.ucloud_public_bucket_host = "http://public_bucket_name.cn-bj.ufileos.com"
   config.ucloud_public_cdn_host = "http://public_bucket_name.cn-bj.ufileos.com"
   config.ucloud_private_bucket = "private_bucket_name"
   # private bucket配置
+  # bucket 上传host，可设置ucloud提供的纯内网host（每个区不一样，例如："http://private_bucket_name.ufile.cn-north-02.ucloud.cn"），或者配置和cdn访问host一样的
   config.ucloud_private_bucket_host = "http://private_bucket_name.cn-bj.ufileos.com"
   config.ucloud_private_cdn_host = "http://private_bucket_name.cn-bj.ufileos.com"
   config.ucloud_private_expire_seconds = 300
