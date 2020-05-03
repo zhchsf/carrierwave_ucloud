@@ -51,17 +51,25 @@ module CarrierWave
       end
 
       # 删除文件
+      # @return [Boolean]
       def delete(path)
         path.sub!(PATH_PREFIX, '')
         response = conn.delete(url(path)) do |req|
           req.headers['Authorization'] = authorization(req.method, nil, path)
         end
 
-        if response.success?
-          true
-        else
-          raise 'Ucloud Get File Fail'
+        response.success?
+      end
+
+      # 查看文件是否存在（head response 200）
+      # @return [Boolean]
+      def exists?(path)
+        path.sub!(PATH_PREFIX, '')
+        response = conn.head(url(path)) do |req|
+          req.headers['Authorization'] = authorization(req.method, nil, path)
         end
+
+        response.success?
       end
 
       def url(path)

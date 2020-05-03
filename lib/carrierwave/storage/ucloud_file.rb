@@ -10,6 +10,15 @@ module CarrierWave
         @bucket   = ::CarrierWave::Ucloud::Bucket.new(uploader)
       end
 
+      ##
+      # === Returns
+      #
+      # [Boolean] Whether the file exists
+      #
+      def exists?
+        bucket.exists?(path)
+      end
+
       def read
         response = bucket.get(path)
         @headers = response.headers.deep_transform_keys { |k| k.underscore.to_sym rescue key }
